@@ -19,6 +19,7 @@ def create_table(create_table_sql):
     conn = None
     try:
         conn = psycopg2.connect(**database_config)
+        print("З базою даних успішно з'єднано!")
         c = conn.cursor()
         c.execute(create_table_sql)
         conn.commit()

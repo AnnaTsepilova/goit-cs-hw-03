@@ -1,16 +1,20 @@
 import psycopg2
 from faker import Faker
 import random
+from dotenv import dotenv_values
+
+# Завантажуємо змінні середовища з .env файлу
+config = dotenv_values('.env')
 
 # Задаємо параметри для заповнення таблиць
 NUMBER_USERS = 20
 NUMBER_TASKS = 30
 
 database_config = {
-    'dbname': 'postgres',
-    'user': 'postgres',
-    'password': 'qwerty',
-    'host': 'localhost'
+    'dbname': config['DBNAME'],
+    'user': config['USER'],
+    'password': config['PASSWORD'],
+    'host': config['HOST']
 }
 
 
