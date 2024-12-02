@@ -1,11 +1,16 @@
 import psycopg2
+from dotenv import dotenv_values
 
-# Задаємо параметри для підключення до бази даних
+# Завантажуємо змінні середовища з .env файлу
+config = dotenv_values('.env')
+
+# Задаємо параметри для заповнення таблиць
+
 database_config = {
-    'dbname': 'postgres',
-    'user': 'postgres',
-    'password': 'qwerty',
-    'host': 'localhost'
+    'dbname': config['DBNAME'],
+    'user': config['USER'],
+    'password': config['PASSWORD'],
+    'host': config['HOST']
 }
 
 
